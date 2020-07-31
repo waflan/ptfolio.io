@@ -3,6 +3,76 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root{
+    font-size: 20px;
+    --bg-color-0: hsl(215, 65%, 10%);
+    --bg-color-1: hsl(218, 57%, 5%);
+    --text-color-0: hsl(215, 100%, 83%);
+    --text-color-1: hsl(214, 44%, 30%);
+    
+}
+@media screen and (max-width: 666px) {
+    :root{
+        font-size: 14px;
+    }
+}
 body{
+    margin: 0;
+    padding: 0;
+}
+.wf-notosansjapanese {
+    font-family: "Noto Sans Japanese"; 
+}
+/* ------------------------------------- ヘッダー ---------------------------------- */
+#header{
+    color: var(--text-color-0);
+    width: 100vw;
+    height: 4rem;
+    background-color: var(--bg-color-0);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
 
+}
+.popup_onTop{
+    position: fixed;
+}
+.header-nav ul{
+    display: flex;
+    flex-direction: row;
+    margin-left: 1em;
+}
+.header-nav li{
+    padding: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-nav li>a{
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: bold;
+}
+.hd-hoverLine{
+    mix-blend-mode: screen;
+    position: absolute;
+    height: 2px;
+    transition: 0.5s;
+    transform: translateY(0.75rem);
+}
+.hd-hoverLight{
+    mix-blend-mode: screen;
+    position: absolute;
+    z-index: -1;
+}
+/* ------------------------------------- 中身 ---------------------------------- */
+#container{
+    width: 100vw;
+    overflow: hidden;
+}
+.bg-0{
+    background-color: var(--bg-color-0);
+}
+.bg-1{
+    background-color: var(--bg-color-1);
 }

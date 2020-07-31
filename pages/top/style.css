@@ -1,0 +1,9 @@
+#cube {
+    margin:0;
+    position: relative;
+	transform-style: preserve-3d;
+}
+.HomeContainer{
+    display: flex;
+    
+}
