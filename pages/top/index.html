@@ -4,8 +4,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<title>ひょうのポートフォリオ</title>
-		<link rel="stylesheet" href="/ptfolio/css/common.css">
-		<!-- <link rel="stylesheet" href="../../css/common.css"> -->
+		<!-- <link rel="stylesheet" href="/ptfolio/css/common.css"> -->
+		<link rel="stylesheet" href="../../css/common.css">
 		<link rel="stylesheet" href="style.css">
 		<link rel="shortcut icon" href="/ptfolio/ico/sosui.ico">
 
@@ -16,11 +16,11 @@
 	<header id="header" class="popup_onTop" style="">
 		<nav class="header-nav wf-notosansjapanese">
 			<ul id="headList">
-				<li><a href="">Home</a></li>
+				<li><a href="/ptfolio/pages/top/index.html">Home</a></li>
 				<li><a href="">制作一覧</a></li>
 				<li><a href="">自己紹介</a></li>
 				<li><a href="">画廊</a></li>
-				<li><a href="">3D</a></li>
+				<li><a href="/ptfolio/pages/3D/index.html">3D</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -30,10 +30,20 @@
 	<!-- コンテナ -->
 	<div id="container">
 			<!-- ここから内容 -->
-				<div class="bg-1" style="width: 100vw;height: 100vh;">
+				<div class="bg-1 HomeBG">
 					<div class="HomeContainer">
-						<div style="transform-style: preserve-3d; transform: scaleZ(10);perspective: 500px;">
-							<div id="cube"></div>
+						<div class="HomeContainerBG"></div>
+						<div class="HomeContent">
+							<div>
+								<a href=""><img src="" alt=""></a>
+							</div>
+							<div>
+								<div id="cubeParent" style="transform-style: preserve-3d;perspective: 500px;width: 200px; transition: 0.5s;">
+									<h1 class="wf-notosansjapanese">3D</h1>
+									<a href=""><div id="cube"></div></a>
+								</div>
+							</div>
+							<div></div>
 						</div>
 					</div>
 				</div>
@@ -43,4 +53,36 @@
 	</body>
 	<script src="../../js/headers.js"></script>
 	<script src="../../js/cube.js"></script>
+	<script>
+		//　背景画像
+		let images = ["pinky.gif","cmk.png","chu.png","skmdl.png"];
+		let bg = document.getElementsByClassName("HomeContainerBG").item(0);
+		let rowNum=5,colNum=10;
+		let pxColumn = parseInt(bg.clientHeight/colNum);
+		let pxRow = parseInt(bg.clientWidth/rowNum);
+		let imageIndex =0;
+		for(let i = 0; i < colNum; i++){
+			for (let j = 0; j < rowNum; j++) {
+				let cell = document.createElement("div");
+				cell.classList.add("BG-Cell");
+				cell.style.width=pxRow+"px";
+				cell.style.height=pxColumn+"px";
+				cell.style.backgroundImage =  "url(../../images/"+ images[imageIndex] +")";
+				bg.appendChild(cell);
+				imageIndex++;
+				if (imageIndex>=images.length) {
+					imageIndex=0;
+				}
+			}
+		}
+		let cells=document.getElementsByClassName("BG-Cell");
+		window.addEventListener("resize", function() {
+			pxColumn = parseInt(bg.clientHeight/colNum);
+			pxRow = parseInt(bg.clientWidth/rowNum);
+			for(let i=0;i<cells.length;i++){
+				cells[i].style.width=pxRow+"px";
+				cells[i].style.height=pxColumn+"px";
+			}
+		});
+	</script>
 </html>
