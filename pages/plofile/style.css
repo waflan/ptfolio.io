@@ -61,7 +61,7 @@
 .sns li a:hover {
     color: #4985ca;
 }
-.profileText h1,.profileText h2,.profileText p{
+.profileText h1,.profileText h2,.profileText p,.profileText small{
     color: var(--text-color-1);
     text-align: center;
 }
